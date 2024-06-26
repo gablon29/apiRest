@@ -1,5 +1,4 @@
 import dbLocal from "db-local";
-import crypto from "crypto";
 const { Schema } = new dbLocal({ path: "./db" });
 
 export const User = Schema("User", {

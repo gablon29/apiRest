@@ -1,7 +1,7 @@
 import axios from "axios";
 import https from "https";
 
-export const fetch_data = async (req, res) => {
+export const fetchAllData = async (req, res) => {
   const { term, semanticTag } = req.body;
   const httpsAgent = new https.Agent({ rejectUnauthorized: false });
   try {
@@ -22,18 +22,7 @@ export const fetch_data = async (req, res) => {
         },
       }
     );
-    const mapeo = await response.data.items.map(({ term }) => {
-      return {
-        termino: term,
-      };
-    });
-    if (!mapeo || mapeo.length === 0) {
-      return res.send(
-        "no hay contenido que mostrar revea los datos ingresados"
-      );
-    } else {
-      return res.json(mapeo);
-    }
+    res.json(response.data);
   } catch (error) {
     console.error(error);
     res.status(500).send("error fetching data");

@@ -1,0 +1,10 @@
+finding - hallazgo
+procedure - procedimiento
+substance - sustancia
+organism - organismo
+disorder - trastorno
+environment - entorno
+geographic location - ubicación geográfica
+person - persona
+product - producto
+occupation - ocupación

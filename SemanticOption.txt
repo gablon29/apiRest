@@ -8,3 +8,8 @@ geographic location - ubicación geográfica
 person - persona
 product - producto
 occupation - ocupación
+
+tareas 
+** creamos una nueva carpeta llamada snomed conexion
+** ruta: /preconsultas/tratamientos.
+** para que el front vea si esta el medicamento. 

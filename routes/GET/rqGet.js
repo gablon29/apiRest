@@ -19,4 +19,5 @@ routerGet.get("/fetch_data", (req, res) => {
 routerGet.get("/alldata", fetchAllData);
 
 routerGet.get("/users", getAllUser);
+
 export default routerGet;

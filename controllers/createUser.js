@@ -1,4 +1,4 @@
-import { User } from "../user-repository.js";
+import User from "../repository/User.js";
 import crypto from "crypto";
 
 export const createUser = (req, res) => {
@@ -11,5 +11,5 @@ export const createUser = (req, res) => {
     username,
     password,
   }).save();
-  return res.status(200).send({ message: "user create exist" });
+  return res.status(200).send({ message: "user create with exit" });
 };

@@ -1,12 +1,13 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import morgan from "morgan";
 import router from "./routes/index.js";
 
 const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(express({ urlencoded: true }));
 
-app.use("/", router);
+app.use(router);
 
 app.use((err, res, req, next) => {
   console.error(err.stack);

@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 import fs from "fs";
 import path from "path";
 
@@ -10,7 +10,7 @@ const modelDefiners = [];
 
 // conexion DB
 export const sequelize = new Sequelize(
-  `postgres://postgres:gabriel@localhost:5432/Demo`,
+  `postgres://postgres:gabriel@localhost:5432/gabriel`,
   {
     logging: false,
     native: false,
@@ -20,19 +20,24 @@ export const sequelize = new Sequelize(
 // leemos todos los archivos de la carpeta models
 // los requerimos y los guardamos en modelDefiners
 
-fs.readdirSync(path.join(__dirname, "/models"))
-  .filter(
-    (file) =>
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-  )
-  .forEach((file) => {
-    modelDefiners.push(import(path.join(__dirname, "/models", file)));
-  });
+const modelsPath = path.join(__dirname, '../models');  // Ajuste para ubicar correctamente la carpeta models
+const modelFiles = fs.readdirSync(modelsPath)
+  .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'));
 
-const loadModels = async () => {
-  const models = await Promise.all(modelDefiners);
-  models.forEach((model) => model(sequelize));
-};
+for (const file of modelFiles) {
+  const modelPath = path.join(modelsPath, file);
+  console.log(`Checking file: ${modelPath}`);
+  if (fs.lstatSync(modelPath).isFile()) {  // Verificamos si es un archivo
+    console.log(`Importing model: ${modelPath}`);
+    modelDefiners.push(import(pathToFileURL(modelPath).href)); // Usamos .href para obtener el string URL
+  } else {
+    console.log(`Skipping directory: ${modelPath}`);
+  }
+}
+
+
+
+// * capitalizamos los nombres de los modelos ir: product => Product
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [
@@ -40,3 +45,13 @@ let capsEntries = entries.map((entry) => [
   entry[1],
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
+
+  // En sequelize.models están todos los modelos importados como propiedades
+  // Para relacionarlos hacemos un destructuring
+
+
+
+export default {
+    ...sequelize.models, // para importar los modelos
+    conn: sequelize, // para importar la conexion
+}

@@ -1,9 +1,9 @@
 import "dotenv/config";
 import app from "./app.js";
 const { PORT } = process.env;
-import { sequelize } from "./db/conexionDB.js";
+import db from "./db/conexionDB.js"
 
-sequelize.sync({ alter: true }).then(() => {
+db.conn.sync({ alter: true }).then(() => {
   console.log("DB connect!");
   app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);

@@ -3,7 +3,6 @@ import app from "./app.js";
 const { PORT } = process.env;
 import sequelize from "./db.js";
 import "./models/Users.js";
-import "./models/models.js";
 
 sequelize.sync({ force: true }).then(() => {
   console.log("Db connect");

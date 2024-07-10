@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
-export const models = {
-  Products: sequelize.define(
+const model = (sequelize) => {
+  sequelize.define(
     "Products",
     {
       IdProduct: {
@@ -17,5 +17,7 @@ export const models = {
     {
       tableName: "Productos",
     }
-  ),
+  );
 };
+
+export default model;

@@ -1,13 +1,14 @@
 import { Sequelize } from "sequelize";
-import Users from "./models/Users";
+import productModel from "./models/Products.js";
 
-const sequelize = new Sequelize(
-  "postgres://postgres:dasf@localhost:5432/Demo",
-  {
-    logging: false,
-  }
-);
+const sequelize = new Sequelize("gabriel", "postgres", "", {
+  host: "localhost",
+  dialect: "postgres",
+  logging: false,
+});
 
-export const { Users } = sequelize.models;
+productModel(sequelize);
+
+export const { Products } = sequelize.models;
 
 export default sequelize;

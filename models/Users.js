@@ -1,26 +1,16 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
-const models = sequelize.define(
-  "Users",
-  {
-    ID: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-      field: "Id",
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+export const Users = sequelize.define("Users", {
+  Id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
   },
-  "Product",
-  {
-    ID: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-    },
-  }
-);
-
-export default models;
+  name: {
+    type: DataTypes.STRING,
+  },
+  disponible: {
+    type: DataTypes.TIME,
+  },
+});

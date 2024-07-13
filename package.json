@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "set NODE_OPTIONS= --experimental-vm-modules && jest",
+    "test": "set NODE_OPTIONS= --no-warnings --experimental-vm-modules && jest",
     "start": "npm run dev"
   },
   "keywords": [],

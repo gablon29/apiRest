@@ -5,7 +5,7 @@ import { user, userFail, userFail2 } from "../utils/userTest.js";
 const req = testServer(routeAplication);
 
 describe("Routes", () => {
-  describe("Get request", () => {
+  describe("Get / request", () => {
     test("should response with a 200 status code", async () => {
       const { status } = await req.get("/api/user");
       expect(status).toEqual(200);
@@ -20,6 +20,17 @@ describe("Routes", () => {
       const response = await req.get("/api/allUsers");
       expect(response.body).toEqual({ msj: "hola" });
     });
+
+    test("should view data api aws", async () => {
+      const response = await req.get("/api/allProducts");
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeInstanceOf(Object);
+    });
+
+    test("Deberia devolverme un respuesta 200 luego de registrar en la tabla", async () => {
+      const response = await req.get("/api/init");
+      expect(response.status).toBe(200);
+    });
   });
   describe("POST / Request", () => {
     describe("toma valores del body y responde con status 200", () => {
@@ -29,7 +40,6 @@ describe("Routes", () => {
       });
       test("Deberia responder con un json cuando la op es exitosa", async () => {
         const { body } = await req.post("/api/user_create").send(user);
-        console.log(body);
         expect(body).toEqual({ msg: "usuario creado" });
       });
       test("Deberia reponder con un 400 cuando no se manda un body", async () => {

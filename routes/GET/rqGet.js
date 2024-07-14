@@ -9,7 +9,7 @@ routerGet.get("/user", (req, res) => {
 });
 
 routerGet.route("/allUsers").get((req, res) => {
-  res.send([]);
+  res.json({ msj: "hola" });
 });
 
 export default routerGet;

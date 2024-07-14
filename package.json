@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "set NODE_OPTIONS= --no-warnings --experimental-vm-modules && jest",
+    "test": "set NODE_OPTIONS= --no-warnings --experimental-vm-modules && jest --detectOpenHandles",
     "start": "npm run dev"
   },
   "keywords": [],

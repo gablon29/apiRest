@@ -4,7 +4,9 @@ import routerPost from "./POST/postUser.js";
 
 const router = Router();
 
-router.use(routerGet);
+router.use("/", routerGet);
 router.use("/", routerPost);
 
-export default router;
+export default (app) => {
+  app.use("/api", router);
+};

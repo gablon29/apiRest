@@ -2,22 +2,22 @@ import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
 export default sequelize.define(
-  "Users",
+  "Admin",
   {
-    Id: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+      unique: true,
     },
-    name: {
-      type: DataTypes.STRING,
-    },
-    disponible: {
-      type: DataTypes.TIME,
+    username: {
+      type: DataTypes.STRING(10),
+      unique: true,
+      allowNull: false,
+      field: "user_name",
     },
   },
   {
     timestamps: false,
-    tableName: "Users",
   }
 );

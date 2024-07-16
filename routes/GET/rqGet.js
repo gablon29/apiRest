@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { initRegisterHandler } from "../../handlers/initRegister.js";
 
 const routerGet = Router();
 
@@ -9,7 +10,12 @@ routerGet.get("/user", (req, res) => {
 });
 
 routerGet.route("/allUsers").get((req, res) => {
-  res.send([]);
+  res.json({ msj: "hola" });
 });
+
+routerGet.route("/allProducts").get((req, res) => {
+  res.status(200).send("hoal");
+});
+routerGet.route("/init").get(initRegisterHandler);
 
 export default routerGet;

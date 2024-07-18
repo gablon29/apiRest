@@ -10,6 +10,7 @@ describe("Routes", () => {
       const { status } = await req.get("/api/user");
       expect(status).toEqual(200);
     });
+    
 
     test("should response with a 404 status code", async () => {
       const response = await req.get("/api/users:id").send();

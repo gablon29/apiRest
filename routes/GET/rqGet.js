@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { initRegisterHandler } from "../../handlers/initRegister.js";
 import { adminGet } from "../../controllers/adminGet.js";
+import { getUsersControllers } from "../../controllers/getUsers.js";
 
 const routerGet = Router();
 
@@ -10,9 +11,7 @@ routerGet.get("/user", (req, res) => {
   res.send("hola mundo");
 });
 
-routerGet.route("/allUsers").get((req, res) => {
-  res.json({ msj: "hola" });
-});
+routerGet.get("/getUsers", getUsersControllers);
 
 routerGet.route("/allProducts").get((req, res) => {
   res.status(200).send("hoal");

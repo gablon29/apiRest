@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
-const Users = sequelize.define(
-  "Users",
+const Cities = sequelize.define(
+  "Cities",
   {
     Id: {
       type: DataTypes.INTEGER,
@@ -12,18 +12,10 @@ const Users = sequelize.define(
     name: {
       type: DataTypes.STRING,
     },
-    cityId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Cities",
-        key: "Id",
-      },
-    },
   },
   {
     timestamps: false,
-    tableName: "Users",
+    tableName: "Cities",
   }
 );
-
-export default Users;
+export default Cities;

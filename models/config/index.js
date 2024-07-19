@@ -1,7 +1,10 @@
 import sequelize from "../../db.js";
-import "../Products.js";
-import "../Users.js";
-import "../Favoritos.js";
-import "../Admin.js";
+import ProductsModel from "../Products.js";
+import FavoritosModel from "../Favoritos.js";
+import UsersModel from "../Users.js";
+import AdminModel from "../Admin.js";
+import CitiesModel from "../Cities.js";
 
-export const { Producst, Favoritos, Users, Admin } = sequelize.models;
+
+export const {
+    Products, Users, Favoritos, Admin, Cities } = sequelize.models;

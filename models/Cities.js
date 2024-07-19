@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
 export default sequelize.define(
-  "Users",
+  "Cities",
   {
     Id: {
       type: DataTypes.INTEGER,
@@ -12,19 +12,15 @@ export default sequelize.define(
     name: {
       type: DataTypes.STRING,
     },
-    disponible: {
-      type: DataTypes.TIME,
+    country: {
+      type: DataTypes.STRING,
     },
-    cityId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Cities",
-        key: "Id",
-      },
+    capital: {
+      type: DataTypes.BOOLEAN,
     },
   },
   {
     timestamps: false,
-    tableName: "Users",
+    tableName: "Cities",
   }
 );

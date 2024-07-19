@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
-export default sequelize.define(
+const Admin = sequelize.define(
   "Admin",
   {
     id: {
@@ -21,3 +21,4 @@ export default sequelize.define(
     timestamps: false,
   }
 );
+export default Admin;

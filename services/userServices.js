@@ -1,17 +1,30 @@
-import { Users, Cities } from "../models/config/index.js";
-class UserService {
-  async createUser(name, disponible, cityId) {
-    return await Users.create({ name, disponible, cityId });
-  }
+import Users from "../models/Users.js";
+import Cities from "../models/Cities.js";
 
-  async getUsers() {
+class UserServices {
+  async getAllUsers() {
     return await Users.findAll({
       include: {
         model: Cities,
-        attributes: ["name"],
+        as: "city",
       },
     });
   }
-}
 
-export const userService = new UserService();
+  async getUserById(id) {
+    return await Users.findByPk(id);
+  }
+
+  async createUser({ name, cityId }) {
+    return await Users.create({ name, cityId });
+  }
+
+  async updateUser(id, user) {
+    return await Users.update(user, { where: { id } });
+  }
+
+  async deleteUser(id) {
+    return await Users.destroy({ where: { id } });
+  }
+}
+export const userServices = new UserServices();

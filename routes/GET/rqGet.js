@@ -1,9 +1,7 @@
 import { Router } from "express";
 import { initRegisterHandler } from "../../handlers/initRegister.js";
 import { adminGet } from "../../controllers/adminGet.js";
-import { get } from "https";
-import { getAllUsersController } from "../../controllers/getAllUsersControllers.js";
-import { getAllCities } from "../../controllers/cities/getAllCities.js";
+import { getUsersControllers } from "../../controllers/getUsers.js";
 
 const routerGet = Router();
 
@@ -13,7 +11,7 @@ routerGet.get("/user", (req, res) => {
   res.send("hola mundo");
 });
 
-routerGet.route("/allUsers").get(getAllUsersController);
+routerGet.get("/getUsers", getUsersControllers);
 
 routerGet.route("/allProducts").get(getAllCities);
 routerGet.route("/init").get(initRegisterHandler);

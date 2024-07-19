@@ -1,10 +1,11 @@
-import { createUser } from "../handlers/userHandlers.js";
+import { createUsersHandlers } from "../handlers/UsersHandlers.js";
 
-export const createUserController = async (req, res) => {
+export const createUserControllers = async (req, res) => {
   try {
-    const user = await createUser(req.body);
-    res.status(201).json(user);
+    const users = await createUsersHandlers(req.body);
+    res.status(201).json(users);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.error(error);
+    res.status(500).send("Error en el controlador de createUser");
   }
 };

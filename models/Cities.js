@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
 
-export default sequelize.define(
+const Cities = sequelize.define(
   "Cities",
   {
     Id: {
@@ -12,15 +12,10 @@ export default sequelize.define(
     name: {
       type: DataTypes.STRING,
     },
-    country: {
-      type: DataTypes.STRING,
-    },
-    capital: {
-      type: DataTypes.BOOLEAN,
-    },
   },
   {
     timestamps: false,
     tableName: "Cities",
   }
 );
+export default Cities;

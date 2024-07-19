@@ -1,8 +1,13 @@
-import { Users, Cities, Producst, Favoritos } from "./index.js";
+import { Users, Cities, Products, Favoritos } from "./index.js";
 
-Users.hasMany(Favoritos, { foreignKey: "userId" });
-Favoritos.belongsTo(Users, { foreignKey: "userId" });
-Producst.hasMany(Favoritos, { foreignKey: "ProductId" });
-Favoritos.belongsTo(Producst, { foreignKey: "ProductId" });
-Users.hasMany(Cities, { foreignKey: "cityId" });
-Cities.hasMany(Users, { foreignKey: "cityId" });
+
+
+Users.belongsTo(Cities, { foreignKey: "cityId", as: "city" });
+Cities.hasMany(Users, { foreignKey: "cityId", as: "users" });
+
+export default {
+  Cities,
+  Users,
+  Products,
+  Favoritos,
+};

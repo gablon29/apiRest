@@ -1,9 +1,7 @@
-import Users from "../models/Users.js";
-import Cities from "../models/Cities.js";
-
+import { model } from "../models/config/associations.js";
 class UserServices {
   async getAllUsers() {
-    return await Users.findAll({
+    return await model.Users.findAll({
       include: {
         association: "city",
         attributes: ["name"],
@@ -12,19 +10,19 @@ class UserServices {
   }
 
   async getUserById(id) {
-    return await Users.findByPk(id);
+    return await model.Users.findByPk(id);
   }
 
   async createUser({ name, cityId }) {
-    return await Users.create({ name, cityId });
+    return await model.Users.create({ name, cityId });
   }
 
   async updateUser(id, user) {
-    return await Users.update(user, { where: { id } });
+    return await model.Users.update(user, { where: { id } });
   }
 
   async deleteUser(id) {
-    return await Users.destroy({ where: { id } });
+    return await model.Users.destroy({ where: { id } });
   }
 }
 export const userServices = new UserServices();

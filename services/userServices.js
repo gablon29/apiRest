@@ -5,8 +5,8 @@ class UserServices {
   async getAllUsers() {
     return await Users.findAll({
       include: {
-        model: Cities,
-        as: "city",
+        association: "city",
+        attributes: ["name"],
       },
     });
   }

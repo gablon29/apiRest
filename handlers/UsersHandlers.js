@@ -20,3 +20,33 @@ export const getAllUsersHandlers = async () => {
     throw new Error("Error en el controlador de getAllUsersHandlers");
   }
 };
+
+export const getUserByIdHandlers = async (id) => {
+  try {
+    const users = await userServices.getUserById(id);
+    return users;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error en el controlador de getUserByIdHandlers");
+  }
+};
+
+export const updateUsers = async (body, id) => {
+  try {
+    const users = await userServices.updateUser(id, body);
+    return users;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error en el controlador de updateUsers");
+  }
+};
+
+export const deleteUsers = async (id) => {
+  try {
+    const users = await userServices.deleteUser(id);
+    return users;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error en el controlador de deleteUsers");
+  }
+};

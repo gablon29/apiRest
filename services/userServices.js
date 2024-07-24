@@ -1,12 +1,11 @@
-import Users from "../models/Users.js";
-import Cities from "../models/Cities.js";
+import model from "../models/config/associations.js";
 
 class UserServices {
   async getAllUsers() {
-    return await Users.findAll({
+    return await model.Users.findAll({
       include: {
-        model: Cities,
-        as: "city",
+        association: "city",
+        attributes: ["id", "name"],
       },
     });
   }
@@ -16,7 +15,7 @@ class UserServices {
   }
 
   async createUser({ name, cityId }) {
-    return await Users.create({ name, cityId });
+    return await model.Users.create({ name, cityId });
   }
 
   async updateUser(id, user) {

@@ -9,9 +9,8 @@ import { deleteUsersControllers } from "../../controllers/deleteUser.js";
 const routerGet = Router();
 
 // funcion comodin para testear cualquier logica
-routerGet.get("/user", (req, res) => {
-  const { id } = req.params;
-  res.send("hola mundo");
+routerGet.get("/allUsers", (req, res) => {
+  res.send({ msj: "hola" });
 });
 // funcion para obtener todos los usuarios
 routerGet.get("/getUsers", getUsersControllers);
@@ -30,5 +29,7 @@ routerGet
 routerGet.route("/init").get(initRegisterHandler);
 
 routerGet.route("/allAdmins").get(adminGet);
+
+routerGet.route("/cities/:id").get(getCitiesById);
 
 export default routerGet;

@@ -5,7 +5,7 @@ import { createUserControllers } from "../../controllers/createUser.js";
 
 const routerPost = Router();
 
-routerPost.post("/userCreate", createUserControllers);
+routerPost.post("/user_create", createUserControllers);
 routerPost.post("/cP", createProduct);
 routerPost.post("/admin", adminPost);
 

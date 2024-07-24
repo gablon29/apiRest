@@ -11,7 +11,7 @@ class UserServices {
   }
 
   async getUserById(id) {
-    return await Users.findByPk(id);
+    return await model.Users.findByPk(id);
   }
 
   async createUser({ name, cityId }) {
@@ -19,11 +19,11 @@ class UserServices {
   }
 
   async updateUser(id, user) {
-    return await Users.update(user, { where: { id } });
+    return await model.Users.update(user, { where: { id } });
   }
 
   async deleteUser(id) {
-    return await Users.destroy({ where: { id } });
+    return await model.Users.destroy({ where: { id } });
   }
 }
 export const userServices = new UserServices();

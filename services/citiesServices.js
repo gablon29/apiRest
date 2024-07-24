@@ -1,12 +1,11 @@
-import Cities from "../models/Cities.js";
-import Users from "../models/Users.js";
+import model from "../models/config/associations.js";
 
 class CitiesServices {
   async getAllCities() {
     try {
-      return await Cities.findAll({
+      return await model.Cities.findAll({
         include: {
-          model: Users,
+          associations: "users",
           attributes: ["name"],
         },
       });

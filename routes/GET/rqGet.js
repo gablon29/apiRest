@@ -39,6 +39,4 @@ routerGet.route("/init").get(initRegisterHandler);
 
 routerGet.route("/allAdmins").get(adminGet);
 
-routerGet.route("/cities/:id").get(getCitiesById);
-
 export default routerGet;

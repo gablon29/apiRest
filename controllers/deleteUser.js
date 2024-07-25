@@ -1,4 +1,4 @@
-import { deleteUsers } from "../handlers/UsersHandlers";
+import { deleteUsers } from "../handlers/UsersHandlers.js";
 
 export const deleteUsersControllers = async (req, res) => {
   try {

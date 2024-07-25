@@ -35,4 +35,5 @@ const p = JSON.parse(o);
 console.log(p);
 const q = Object.assign({}, obj);
 console.log(q);
+const r = obj.get({ plain: true });
 

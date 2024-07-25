@@ -5,6 +5,9 @@ import { getUsersControllers } from "../../controllers/getUsers.js";
 import { createUserControllers } from "../../controllers/createUser.js";
 import { updateUserControllers } from "../../controllers/updateUser.js";
 import { deleteUsersControllers } from "../../controllers/deleteUser.js";
+import { getProducts } from "../../controllers/products/getProduct.js";
+import { createProduct } from "../../controllers/products/createProduct.js";
+import { updateProduct } from "../../controllers/products/updateProduct.js";
 
 const routerGet = Router();
 
@@ -18,6 +21,12 @@ routerGet.get("/getUsers", getUsersControllers);
 routerGet.route("/allProducts").get((req, res) => {
   res.status(200).send("hoal");
 });
+
+routerGet
+  .route("/product")
+  .get(getProducts)
+  .post(createProduct)
+  .patch(updateProduct);
 
 routerGet
   .route("/apiUser/:id")

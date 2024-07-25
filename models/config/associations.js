@@ -1,4 +1,4 @@
-import { Users, Cities, Products, Favoritos } from "./index.js";
+import { Users, Cities, Products, Favoritos, Task } from "./index.js";
 
 Users.hasMany(Products, { foreignKey: "userId", as: "products" });
 Products.belongsToMany(Users, { through: Favoritos, foreignKey: "productId" });
@@ -10,4 +10,5 @@ export default {
   Users,
   Products,
   Favoritos,
+  Task,
 };

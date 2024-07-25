@@ -1,4 +1,4 @@
-import { updateUsers } from "../handlers/UsersHandlers";
+import { updateUsers } from "../handlers/UsersHandlers.js";
 
 export const updateUserControllers = async (req, res, next) => {
   try {

@@ -19,6 +19,8 @@ routerGet.get("/allUsers", (req, res) => {
 routerGet.get("/getUsers", getUsersControllers);
 
 routerGet.route("/allProducts").get((req, res) => {
+  const { field, value } = req.query;
+  console.log(field, value);
   res.status(200).send("hoal");
 });
 

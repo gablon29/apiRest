@@ -14,8 +14,8 @@ class UserServices {
     return await model.Users.findByPk(id);
   }
 
-  async createUser({ name, cityId }) {
-    return await model.Users.create({ name, cityId });
+  async createUser(user) {
+    return await model.Users.create(user);
   }
 
   async updateUser(id, user) {

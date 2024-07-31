@@ -19,13 +19,6 @@ const Users = sequelize.define(
         key: "Id",
       },
     },
-    cityId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Cities",
-        key: "Id",
-      },
-    },
   },
   {
     timestamps: false,

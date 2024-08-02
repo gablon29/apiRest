@@ -24,3 +24,11 @@ const validateCity = async (id) => {
     throw new Error("City does not exist");
   }
 };
+
+
+export const updateUserObject = async (newData, oldData) => {
+  return Object.keys(oldData).reduce((acc, key) => { 
+    acc[key] = newData[key] !== undefined ? newData[key] : oldData[key];
+    return acc;
+  }, {});
+}

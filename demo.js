@@ -1,6 +1,11 @@
-const a = null;
-if (a) {
-  console.log('a is truthy');
+function demoErrorEvent(str) {
+  if (typeof str !== "string") {
+    throw new Error("Invalid input");
+  }
+}
+
+if (!demoErrorEvent()) {
+  console.log("Success");
 } else {
-  console.log('a is falsy');
+  console.log("Error");
 }

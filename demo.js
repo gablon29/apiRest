@@ -1,11 +1,3 @@
-function demoErrorEvent(str) {
-  if (typeof str !== "string") {
-    throw new Error("Invalid input");
-  }
-}
+const a = "hola como estas";
 
-if (!demoErrorEvent()) {
-  console.log("Success");
-} else {
-  console.log("Error");
-}
+JSON.stringify(a, null, 2); // '"hola como estas"'

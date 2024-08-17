@@ -1,3 +1,8 @@
-const a = "hola como estas";
-
-JSON.stringify(a, null, 2); // '"hola como estas"'
+const a = [1, 2, 4, 6];
+const b = a.map((element) => {
+  return {
+    jefe: 1,
+    empleado: element,
+  };
+});
+console.log(b);

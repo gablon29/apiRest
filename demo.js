@@ -1,8 +1,3 @@
-const a = [1, 2, 4, 6];
-const b = a.map((element) => {
-  return {
-    jefe: 1,
-    empleado: element,
-  };
-});
-console.log(b);
+import moment from "moment";
+
+const a = moment().format("YYYY-MM-DD HH:mm:ss");

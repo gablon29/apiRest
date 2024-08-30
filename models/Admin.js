@@ -16,6 +16,15 @@ const Admin = sequelize.define(
       allowNull: false,
       field: "user_name",
     },
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      field: "create_date",
+    },
+    password: {
+      type: DataTypes.STRING(10),
+      allowNull: false,
+    },
   },
   {
     timestamps: false,

@@ -71,7 +71,7 @@ class PerroClase extends Animal {
     this.raza = raza;
     this.#tetas = tetas;
   }
-
+  // metodos privados de la clase
   setTetas(tetas) {
     this.#tetas = tetas;
   }
@@ -84,7 +84,12 @@ class PerroClase extends Animal {
   saludo() {
     return `Hola soy ${this.nombre} y soy un perro`;
   }
+  // metodos estaticos
+  static ladrar() {
+    console.log("guau guau");
+  }
 }
+PerroClase.ladrar();
 const perroMalo = new PerroClase("Julio", 2, "Pitbull", 10);
 perroMalo.nombre = "Julito";
 perroMalo.raza = "Pitbull";

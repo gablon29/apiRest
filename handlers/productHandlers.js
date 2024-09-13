@@ -1,7 +1,7 @@
 export const verifyProduct = (req, res, next) => {
   const { name } = req.body;
   
-  if (!name || !price || !description || !stock || !image) {
+  if (!name) {
     return res.status(400).json({ message: "Missing fields" });
   }
   if (typeof name !== "string") {

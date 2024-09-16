@@ -112,3 +112,50 @@ console.log(perro.saludar());
 
 const perro1 = new Perro("Firulais");
 perro1.saludo();
+
+class Vehiculo {
+  constructor(marca, modelo, combustible) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.combustible = combustible;
+  }
+
+  acelerar() {
+    return "Acelerando";
+  }
+}
+
+class Moto extends Vehiculo {
+  constructor(marca, modelo, combustible, cilindrada) {
+    super(marca, modelo, combustible);
+    this.cilindrada = cilindrada;
+  }
+
+  acelerar() {
+    return "Acelerando moto";
+  }
+  hacerWilly() {
+    return "haciendo willy";
+  }
+}
+
+class Coche extends Vehiculo {
+  constructor(marca, modelo, combustible, puertas) {
+    super(marca, modelo, combustible);
+    this.puertas = puertas;
+  }
+
+  acelerar() {
+    return "Acelerando coche";
+  }
+
+  abrirPuertas() {
+    return "abriendo puertas";
+  }
+}
+
+const moto = new Moto("Yamaha", "R1", "Gasolina", 1000);
+console.log(moto.acelerar());
+
+const coche = new Coche("Seat", "Ibiza", "Gasolina", 5);
+console.log(coche.acelerar());

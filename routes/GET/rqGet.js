@@ -6,17 +6,6 @@ import { updateProduct } from "../../controllers/products/updateProduct.js";
 
 const routerGet = Router();
 
-// funcion comodin para testear cualquier logica
-routerGet.get("/allUsers", (req, res) => {
-  res.send({ msj: "hola" });
-});
-
-routerGet.route("/allProducts").get((req, res) => {
-  const { field, value } = req.query;
-  console.log(field, value);
-  res.status(200).send("hoal");
-});
-
 routerGet
   .route("/product")
   .get(getProducts)

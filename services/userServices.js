@@ -10,6 +10,12 @@ class UserServices {
     });
   }
 
+  async login(email) {
+    return await model.Users.findOne({
+      where: { email },
+    });
+  }
+
   async getUserById(id) {
     return await model.Users.findByPk(id);
   }

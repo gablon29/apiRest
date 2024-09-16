@@ -1,11 +1,12 @@
-function demoErrorEvent(str) {
-  if (typeof str !== "string") {
-    throw new Error("Invalid input");
+function validationInput(input) {
+  if (typeof input !== "string") {
+    throw new Error("Input must be a string");
   }
 }
 
-if (!demoErrorEvent()) {
-  console.log("Success");
-} else {
-  console.log("Error");
+function createInput(input) {
+  validationInput(input);
+  return "Input creado con exito";
 }
+
+console.log(createInput("Hola Mundo"));
